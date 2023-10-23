@@ -2,11 +2,13 @@
 
 Запуск контейнера:<br>
 В командной строке копируем репозиторий вводим:<br>
-`md NewDir`<br>
-`cd NewDir`<br>
-`git clone https://github.com/Shukik85/TestWorkAPI.git`<br>
-`cd TestWorkAPI`<br>
-`docker compose up --build`<br>
+```
+`md NewDir`
+`cd NewDir`
+`git clone https://github.com/Shukik85/TestWorkAPI.git`
+`cd TestWorkAPI`
+`docker compose up --build`
+```
 Запустится NGINX сервер в локальной сети<br>
 Далее создадим суперпользователя Django<br>
 `docker compose exec api python manage.py createsuperuser`<br>
