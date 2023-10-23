@@ -22,7 +22,18 @@ services:
     env_file:
       - ./.env
     volumes:
-      - static_volume:/home/app/api/staticfiles
+      - static_volume:/home/app/api/staticfiles/
     command: gunicorn quizservice.wsgi:application --bind 0.0.0.0:8000
     expose:
       - 8000
+  nginx:
+    build:
+      context: "./nginx"
+      dockerfile: "Dockerfile"
+    restart: always
+    volumes:
+      - static_volume:/home/app/api/staticfiles/
+    ports:
+      - 80:80
+    depends_on:
+      - api
